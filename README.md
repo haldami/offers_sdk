@@ -1,6 +1,6 @@
 # Offers SDK
 
-Async first Python SDK for interacting with the Offers API as documented in [Swagger](https://python.exercise.applifting.cz/docs) or [Redoc](https://python.exercise.applifting.cz/redoc) documentation. Handles authentication, token management, product registration, and fetching offers. Supports multiple HTTP clients (`requests`, `httpx`, `aiohttp`).
+Async first Python SDK for interacting with the Offers API as described in [Swagger](https://python.exercise.applifting.cz/docs) or [Redoc](https://python.exercise.applifting.cz/redoc) documentation. Handles authentication, token management, product registration, and fetching offers. Supports multiple HTTP clients (`requests`, `httpx`, `aiohttp`).
 
 ---
 
@@ -278,12 +278,6 @@ pytest --client=requests
 
 ---
 
-## License
-
-MIT License © 2025 Milos Halda
-
----
-
 ### Notes
 
 * While sync/async calls were included for all HTTP client implementations, the best experience for async calls is achieved using httpx/aiohttp libraries.
@@ -292,3 +286,9 @@ MIT License © 2025 Milos Halda
 * Refresh token of the author was left in the `dumped_clients/*.json` files for testing.
 * If you want to initialize client 5 minutes from the last client authentication, you need to load the auth_token explicitly.
   * The access token is saved automatically to the dumped json file or can be found from the Auth call log file.
+
+---
+
+## License
+
+MIT License © 2025 Milos Halda
