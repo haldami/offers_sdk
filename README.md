@@ -132,14 +132,15 @@ except InvalidAPIRequestException as e:
 ```python
 from offers_sdk import Client
 
+# Simple client initiation
 # Only refresh token is required. For full options see `Client.__init__` documentation.
 client = Client(refresh_token="your_refresh_token")
 
 # Save the client state including access token
-client.save_to_file("dumped_clients/requests_w_access_token.json")
+client.save_to_file("dumped_clients/your_client.json")
 
 # Load it later
-client = Client.load_from_file("dumped_clients/requests_w_access_token.json")
+client = Client.load_from_file("dumped_clients/your_client.json")
 ```
 
 ---
