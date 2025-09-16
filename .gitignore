@@ -7,3 +7,6 @@ logs/*
 test.py
 test_cli.py
 Notes.md
+# Installation files
+build/*
+offers_sdk/offers_sdk.egg-info/*
