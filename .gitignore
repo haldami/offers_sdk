@@ -10,3 +10,4 @@ Notes.md
 # Installation files
 build/*
 offers_sdk/offers_sdk.egg-info/*
+offers_sdk.egg-info/*
