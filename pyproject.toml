@@ -16,5 +16,8 @@ dependencies = [
     "aiohttp>=3.9"
 ]
 
+[project.scripts]
+offers-cli = "offers_sdk.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/haldami/offers_sdk"

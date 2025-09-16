@@ -1,6 +1,9 @@
 {
     "base_url": "https://python.exercise.applifting.cz",
     "refresh_token": "e7edfbec-33f3-433b-94f3-365ddb941d0c",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6ImU3ZWRmYmVjLTMzZjMtNDMzYi05NGYzLTM2NWRkYjk0MWQwYyIsImV4cGlyZXMiOjE3NTgwNTU2NzV9.TkReQ6fj4ntyXCFh6mxFluxZDfcBIodacGaF37nKp_s",
+    "token_expiry": "2025-09-16T22:47:55.526414",
     "http_client_type": "requests",
-    "logging": true
+    "logging": true,
+    "log_dir": "logs"
 }

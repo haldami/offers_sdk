@@ -1,0 +1,52 @@
+[
+    {
+        "id": "19619bbc-5850-4862-9ed5-b41f82a889cb",
+        "name": "Product01",
+        "description": "Description of Product01"
+    },
+    {
+        "id": "684b06ac-eee4-4d95-9840-bb6ccf92e618",
+        "name": "Product02",
+        "description": "Description of Product02"
+    },
+    {
+        "id": "b19dcc0c-6a46-4431-a5e8-afb30da4d98e",
+        "name": "Product03",
+        "description": "Description of Product03"
+    },
+    {
+        "id": "fb016757-eb35-410e-94d6-99e0e2feadbd",
+        "name": "Product04",
+        "description": "Description of Product04"
+    },
+    {
+        "id": "0dcfc233-6043-4c5c-b918-5a1e2897188f",
+        "name": "Product05",
+        "description": "Description of Product05"
+    },
+    {
+        "id": "d745a86b-1eda-405c-ae35-9322fcf89c7d",
+        "name": "Product06",
+        "description": "Description of Product06"
+    },
+    {
+        "id": "0d61a58b-c87f-4e57-8d42-c69879d89da0",
+        "name": "Product07",
+        "description": "Description of Product07"
+    },
+    {
+        "id": "33a6ac7a-a93e-4513-b71f-2b0afd5a29d8",
+        "name": "Product08",
+        "description": "Description of Product08"
+    },
+    {
+        "id": "b391d243-5834-42e7-bcba-44256f789512",
+        "name": "Product09",
+        "description": "Description of Product09"
+    },
+    {
+        "id": "ad4c8529-0804-4053-a8d7-5e8b972422c7",
+        "name": "Product00",
+        "description": "Description of Product00"
+    }
+]

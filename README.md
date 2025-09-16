@@ -21,13 +21,13 @@ Async first Python SDK for interacting with the Offers API as documented in [Swa
 
 ## Installation
 
-Install via `pip` from PyPI (once published):
+<!-- Install via `pip` from PyPI (once published):
 
 ```bash
 pip install offers-sdk
-```
+``` -->
 
-Or install locally from your repository:
+Install locally from your repository:
 
 ```bash
 git clone https://github.com/haldami/offers_sdk.git
@@ -142,6 +142,95 @@ client.save_to_file("dumped_clients/your_client.json")
 # Load it later
 client = Client.load_from_file("dumped_clients/your_client.json")
 ```
+
+---
+
+## Command Line Interface (CLI)
+
+The Offers SDK provides a **fully-featured CLI** to interact with the API directly from the terminal.
+It supports both **single** and **batch operations** for registering products/offers and fetching offers.
+
+---
+
+Example JSON **input files for batch operations** are available in the [`example_input_files`](example_input_files) folder:
+
+* **products.json** – list of products to register
+* **ids.json** – list of product/offer UUIDs to fetch offers
+
+Each file should be a valid JSON array. For example:
+
+**products.json**
+
+```json
+[
+  {
+    "id": "11111111-1111-1111-1111-111111111111",
+    "name": "Product A",
+    "description": "Description for Product A"
+  },
+  {
+    "id": "22222222-2222-2222-2222-222222222222",
+    "name": "Product B",
+    "description": "Description for Product B"
+  }
+]
+```
+
+**ids.json**
+
+```json
+[
+  "11111111-1111-1111-1111-111111111111",
+  "22222222-2222-2222-2222-222222222222"
+]
+```
+
+### Usage Examples
+
+**1. Register a single product**
+
+```bash
+python -m offers_sdk.cli \
+    --client-location dumped_clients/requests.json \
+    register \
+    --id ad4c8529-0804-4053-a8d7-5e8b972422c7 \
+    --name "Product A" \
+    --description "Example product"
+```
+
+**2. Register multiple products from a JSON file**
+
+```bash
+python -m offers_sdk.cli \
+    --client-location dumped_clients/requests.json \
+    register_batch \
+    --file example_input_files/products.json
+```
+
+**3. Fetch offers for a single product**
+
+```bash
+python -m offers_sdk.cli \
+    --client-location dumped_clients/requests.json \
+    get_offers \
+    --id ad4c8529-0804-4053-a8d7-5e8b972422c7
+```
+
+**4. Fetch offers for multiple products from a JSON file**
+
+```bash
+python -m offers_sdk.cli \
+    --client-location dumped_clients/requests.json
+    get_offers_batch \
+    --file example_input_files/ids.json
+```
+
+### Notes
+
+* `--client-location` is **required** and should point to a valid dumped client configuration (`.json`).
+  * the file is used for storage of auth token across the sessions.
+* Batch commands (`register_batch` and `get_offers_batch`) expect **valid JSON arrays** as input.
+* The CLI automatically handles **async execution** for batch operations, so all requests run concurrently.
 
 ---
 
