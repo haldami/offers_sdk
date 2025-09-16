@@ -9,15 +9,18 @@ description = "SDK for interacting with the Offers API"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name="Milos Halda", email="milos.halda@gmail.com"}]
-license = {text = "MIT"}
 dependencies = [
     "requests>=2.31",
     "httpx>=0.26",
     "aiohttp>=3.9"
 ]
+license = "MIT"
 
-[project.scripts]
-offers-cli = "offers_sdk.cli:main"
+[tool.setuptools.packages.find]
+where = ["offers_sdk"]
 
 [project.urls]
 Homepage = "https://github.com/haldami/offers_sdk"
+
+[project.scripts]
+offers-cli = "offers_sdk.cli:main"

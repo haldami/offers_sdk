@@ -261,7 +261,9 @@ offers_sdk
 ### Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+# pytest of specified version was used for testing
+# black was used for formatting
+pip install pytest==8.4.1 black==25.1.0
 ```
 
 ### Running Tests
@@ -276,6 +278,13 @@ pytest --client=requests
 
 > Make sure to have valid credentials saved in `tests/dumped_clients/` before running tests.
 
+---
+
+### Formatting using black
+
+```bash
+black offers_sdk/ # run in repo root folder, formats every .py file 
+```
 ---
 
 ### Notes
