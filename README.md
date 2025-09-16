@@ -147,20 +147,20 @@ client = Client.load_from_file("dumped_clients/requests_w_access_token.json")
 ## Project Structure
 
 ```
-offers_sdk/
+offers_sdk
 ├── client.py             # Main SDK client
 ├── exceptions.py         # Custom exception classes
 ├── __init__.py
-├── models/
+├── models
 │   ├── offer.py
 │   ├── product.py
 │   └── __init__.py
-└── services/
+└── services
     ├── aio_http_client.py
+    ├── api_response.py
     ├── http_client_interface.py
     ├── httpx_client.py
     ├── requests_client.py
-    ├── api_response.py
     └── __init__.py
 ```
 
@@ -178,6 +178,10 @@ pip install -r requirements.txt
 
 ```bash
 pytest --client=requests
+# --client can have also values httpx and aiohttp
+# use -s option to see printed output
+# run the tests with 5 minutes break between them
+# - real API is used for testing, which does not allow repeated authentication
 ```
 
 > Make sure to have valid credentials saved in `tests/dumped_clients/` before running tests.
