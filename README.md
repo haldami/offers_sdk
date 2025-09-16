@@ -190,7 +190,7 @@ Each file should be a valid JSON array. For example:
 **1. Register a single product**
 
 ```bash
-python -m offers_sdk.cli \
+offers-cli \
     --client-location dumped_clients/requests.json \
     register \
     --id ad4c8529-0804-4053-a8d7-5e8b972422c7 \
@@ -201,7 +201,7 @@ python -m offers_sdk.cli \
 **2. Register multiple products from a JSON file**
 
 ```bash
-python -m offers_sdk.cli \
+offers-cli \
     --client-location dumped_clients/requests.json \
     register_batch \
     --file example_input_files/products.json
@@ -210,7 +210,7 @@ python -m offers_sdk.cli \
 **3. Fetch offers for a single product**
 
 ```bash
-python -m offers_sdk.cli \
+offers-cli \
     --client-location dumped_clients/requests.json \
     get_offers \
     --id ad4c8529-0804-4053-a8d7-5e8b972422c7
@@ -219,7 +219,7 @@ python -m offers_sdk.cli \
 **4. Fetch offers for multiple products from a JSON file**
 
 ```bash
-python -m offers_sdk.cli \
+offers-cli \
     --client-location dumped_clients/requests.json
     get_offers_batch \
     --file example_input_files/ids.json
