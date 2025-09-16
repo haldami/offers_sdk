@@ -23,3 +23,6 @@ class AuthException(Exception):
     """Raised when authentication fails (HTTP 401)."""
 
     pass
+
+class ValidationException(Exception):
+    """When validation error occurs (HTTP 422)."""

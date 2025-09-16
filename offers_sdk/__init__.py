@@ -5,7 +5,8 @@ from .exceptions import (
     InvalidAPIRequestException,
     InvalidClientTypeException,
     APIException,
-    AuthException
+    AuthException,
+    ValidationException
 )
 from .models.product import Product
 from .models.offer import Offer
@@ -20,4 +21,5 @@ __all__ = [
     "InvalidClientTypeException",
     "APIException",
     "AuthException",
+    "ValidationException"
 ]

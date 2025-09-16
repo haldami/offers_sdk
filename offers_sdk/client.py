@@ -23,6 +23,7 @@ from .exceptions import (
     InvalidClientTypeException,
     APIException,
     AuthException,
+    ValidationException,
 )
 from .models import Offer, Product
 from .services import APIResponse
@@ -277,7 +278,7 @@ class Client:
 
     def _http_code_422(self, api_response: APIResponse):
         # Should not be raised! - The client does not allow invalid requests!
-        raise Exception(f"HTTP 422: Validation Error.\n{api_response.data}")
+        raise ValidationException(f"HTTP 422: Validation Error.\n{api_response.data}")
 
     def _http_code_unknown(self, api_response: APIResponse):
         raise APIException(
