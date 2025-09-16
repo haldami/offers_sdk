@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65.5.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offers_sdk"
+version = "0.1.0"
+description = "SDK for interacting with the Offers API"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name="Milos Halda", email="milos.halda@gmail.com"}]
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.31",
+    "httpx>=0.26",
+    "aiohttp>=3.9"
+]
+
+[project.urls]
+Homepage = "https://github.com/haldami/offers_sdk"
