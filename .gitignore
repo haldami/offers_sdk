@@ -3,6 +3,7 @@
 tests/logs/*
 tests/dumped_clients/*_w_access_token.json
 logs/*
+# Files used when developed
 test.py
 test_cli.py
 Notes.md
