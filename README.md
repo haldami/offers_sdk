@@ -32,7 +32,7 @@ Install locally from your repository:
 ```bash
 git clone https://github.com/haldami/offers_sdk.git
 cd offers_sdk
-pip install .
+pip install -e . # -e uses the latest modified version of the package
 ```
 
 ---

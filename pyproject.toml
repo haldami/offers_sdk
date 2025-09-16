@@ -16,11 +16,12 @@ dependencies = [
 ]
 license = "MIT"
 
-[tool.setuptools.packages.find]
-where = ["offers_sdk"]
-
 [project.urls]
 Homepage = "https://github.com/haldami/offers_sdk"
 
 [project.scripts]
 offers-cli = "offers_sdk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["offers_sdk", "offers_sdk.*"]
