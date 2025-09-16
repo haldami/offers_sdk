@@ -2,3 +2,6 @@
 # Test generated data
 tests/logs/*
 tests/dumped_clients/*_w_access_token.json
+logs/*
+test.py
+Notes.md
