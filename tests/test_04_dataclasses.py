@@ -11,6 +11,7 @@ from uuid import uuid4
 from offers_sdk.models import Offer, Product
 from offers_sdk.services import APIResponse
 
+
 # Test for the Offer dataclass
 def test_offer_initialization():
     """
@@ -28,6 +29,7 @@ def test_offer_initialization():
     assert offer.price == price
     assert offer.items_in_stock == items_in_stock
 
+
 def test_offer_repr():
     """
     Test the string representation of the Offer dataclass.
@@ -39,6 +41,7 @@ def test_offer_repr():
 
     expected_repr = f"Offer(id={offer_id!r}, price={1999!r}, items_in_stock={50!r})"
     assert repr(offer) == expected_repr
+
 
 # Test for the Product dataclass
 def test_product_initialization():
@@ -57,6 +60,7 @@ def test_product_initialization():
     assert product.name == name
     assert product.description == description
 
+
 def test_product_to_dict():
     """
     Test the to_dict method of the Product dataclass.
@@ -65,14 +69,17 @@ def test_product_to_dict():
     of the Product instance.
     """
     product_id = uuid4()
-    product = Product(id=product_id, name="Sample Product", description="This is a sample product.")
+    product = Product(
+        id=product_id, name="Sample Product", description="This is a sample product."
+    )
 
     expected_dict = {
         "id": str(product_id),
         "name": "Sample Product",
-        "description": "This is a sample product."
+        "description": "This is a sample product.",
     }
     assert product.to_dict() == expected_dict
+
 
 def test_product_repr():
     """
@@ -81,10 +88,13 @@ def test_product_repr():
     Verifies that the __repr__ method returns the expected string format.
     """
     product_id = uuid4()
-    product = Product(id=product_id, name="Sample Product", description="This is a sample product.")
+    product = Product(
+        id=product_id, name="Sample Product", description="This is a sample product."
+    )
 
     expected_repr = f"Product(id={product_id!r}, name={product.name!r}, description={product.description!r})"
     assert repr(product) == expected_repr
+
 
 # Test for the APIResponse dataclass
 def test_api_response_initialization():
@@ -101,6 +111,7 @@ def test_api_response_initialization():
     assert api_response.data == response_data
     assert api_response.status_code == status_code
 
+
 def test_api_response_repr():
     """
     Test the string representation of the APIResponse dataclass.
@@ -114,4 +125,3 @@ def test_api_response_repr():
 
     expected_repr = f"APIResponse(status_code={status_code!r}, data={response_data!r})"
     assert repr(api_response) == expected_repr
-

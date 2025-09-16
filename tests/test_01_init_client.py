@@ -16,27 +16,30 @@ def test_init_requests() -> None:
     """
     Test that a Client initialized from a 'requests' JSON uses RequestsClient.
     """
-    client = Client.load_from_file('dumped_clients/requests.json')
-    assert isinstance(client.http_client, RequestsClient), \
-        "Client.http_client should be of type RequestsClient."
+    client = Client.load_from_file("dumped_clients/requests.json")
+    assert isinstance(
+        client.http_client, RequestsClient
+    ), "Client.http_client should be of type RequestsClient."
 
 
 def test_init_httpx() -> None:
     """
     Test that a Client initialized from a 'httpx' JSON uses HttpxClient.
     """
-    client = Client.load_from_file('dumped_clients/httpx.json')
-    assert isinstance(client.http_client, HttpxClient), \
-        "Client.http_client should be of type HttpxClient."
+    client = Client.load_from_file("dumped_clients/httpx.json")
+    assert isinstance(
+        client.http_client, HttpxClient
+    ), "Client.http_client should be of type HttpxClient."
 
 
 def test_init_aiohttp() -> None:
     """
     Test that a Client initialized from an 'aiohttp' JSON uses AioHttpClient.
     """
-    client = Client.load_from_file('dumped_clients/aiohttp.json')
-    assert isinstance(client.http_client, AioHttpClient), \
-        "Client.http_client should be of type AioHttpClient."
+    client = Client.load_from_file("dumped_clients/aiohttp.json")
+    assert isinstance(
+        client.http_client, AioHttpClient
+    ), "Client.http_client should be of type AioHttpClient."
 
 
 def test_init_nonsense() -> None:
@@ -45,4 +48,4 @@ def test_init_nonsense() -> None:
     raises InvalidClientTypeException.
     """
     with pytest.raises(InvalidClientTypeException):
-        Client.load_from_file('dumped_clients/nonsense_http_client.json')
+        Client.load_from_file("dumped_clients/nonsense_http_client.json")

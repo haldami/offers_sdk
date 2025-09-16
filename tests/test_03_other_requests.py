@@ -27,9 +27,7 @@ def test_register_product(client_type: str) -> None:
     client = Client.load_from_file(f"dumped_clients/{client_type}_w_access_token.json")
 
     product = Product(
-        id=uuid.uuid4(),
-        name="Test Product",
-        description="Registered from pytest"
+        id=uuid.uuid4(), name="Test Product", description="Registered from pytest"
     )
 
     asyncio.run(client.register_product(product))
@@ -68,9 +66,7 @@ def test_get_offers_existing_product(client_type: str) -> None:
     client = Client.load_from_file(f"dumped_clients/{client_type}_w_access_token.json")
 
     product = Product(
-        id=uuid.uuid4(),
-        name="Product With Offers",
-        description="Testing get_offers"
+        id=uuid.uuid4(), name="Product With Offers", description="Testing get_offers"
     )
 
     # Register product first
@@ -79,10 +75,10 @@ def test_get_offers_existing_product(client_type: str) -> None:
     # Retrieve offers for the registered product
     list_offers = asyncio.run(client.get_offers(product.id))
 
-    for offer in list_offers: # If there are offers, they are of offer type
+    for offer in list_offers:  # If there are offers, they are of offer type
         assert type(offer) == Offer
         # Print offers to check them exactly
-        #(can be viewed when running pytest with -s option)
+        # (can be viewed when running pytest with -s option)
         print(offer)
 
 
@@ -103,4 +99,3 @@ def test_get_offers_nonexistent_product(capfd, client_type: str) -> None:
 
     text_output = capfd.readouterr().out
     assert f"Product ID {random_id} not registered. Response: {{'detail': 'Product does not exist'}}\n"
-

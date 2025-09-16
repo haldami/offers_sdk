@@ -21,7 +21,7 @@ def test_wrong_refresh_token(client_type: str) -> None:
     """
     with pytest.raises(AuthException):
         client = Client.load_from_file(
-            f'dumped_clients/{client_type}_wrong_refresh_token.json'
+            f"dumped_clients/{client_type}_wrong_refresh_token.json"
         )
         client.retrieve_access_token()
 
@@ -37,13 +37,13 @@ def test_normal(client_type: str) -> None:
     Args:
         client_type: Type of HTTP client ('requests', 'httpx', or 'aiohttp').
     """
-    client = Client.load_from_file(f'dumped_clients/{client_type}.json')
+    client = Client.load_from_file(f"dumped_clients/{client_type}.json")
     client.retrieve_access_token()  # Should complete without error.
-    
+
     assert client.access_token, "Access token should be set after successful auth."
-    
+
     # Save client state for further tests (avoiding repeated auth calls)
-    client.save_to_file(f'dumped_clients/{client_type}_w_access_token.json')
+    client.save_to_file(f"dumped_clients/{client_type}_w_access_token.json")
 
 
 def test_normal_second(client_type: str) -> None:
@@ -55,5 +55,5 @@ def test_normal_second(client_type: str) -> None:
         client_type: Type of HTTP client ('requests', 'httpx', or 'aiohttp').
     """
     with pytest.raises(InvalidAPIRequestException):
-        client = Client.load_from_file(f'dumped_clients/{client_type}.json')
+        client = Client.load_from_file(f"dumped_clients/{client_type}.json")
         client.retrieve_access_token()
