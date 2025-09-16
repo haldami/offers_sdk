@@ -1,6 +1,6 @@
 # Offers SDK
 
-Async first Python SDK for interacting with the Offers API. Handles authentication, token management, product registration, and fetching offers. Supports multiple HTTP clients (`requests`, `httpx`, `aiohttp`).
+Async first Python SDK for interacting with the Offers API as documented in [Swagger](https://python.exercise.applifting.cz/docs) or [Redoc](https://python.exercise.applifting.cz/redoc) documentation. Handles authentication, token management, product registration, and fetching offers. Supports multiple HTTP clients (`requests`, `httpx`, `aiohttp`).
 
 ---
 
