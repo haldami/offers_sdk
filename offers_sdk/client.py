@@ -15,7 +15,7 @@ import json
 from json import JSONDecodeError
 from pathlib import Path
 from datetime import datetime, timedelta
-from typing import List, Dict, Any
+from typing import List
 from uuid import UUID
 
 from .exceptions import (
@@ -88,7 +88,12 @@ class Client:
         self.http_client = http_client_class()
 
     def _log_request(
-        self, req_type: str, url: str, headers: dict, data: dict, api_response: APIResponse
+        self,
+        req_type: str,
+        url: str,
+        headers: dict,
+        data: dict,
+        api_response: APIResponse,
     ) -> None:
         """Log API requests and responses to files in the specified log directory."""
         os.makedirs(self.log_dir, exist_ok=True)
@@ -138,9 +143,13 @@ class Client:
                         f"Response: {api_response.data}"
                     )
                 self.access_token = access_token
-                self.token_expiry = datetime.now() + timedelta(minutes=self.ACCESS_TOKEN_TIMEOUT)
+                self.token_expiry = datetime.now() + timedelta(
+                    minutes=self.ACCESS_TOKEN_TIMEOUT
+                )
             case 400:
-                raise InvalidAPIRequestException(f"HTTP 400 Bad request: {api_response.data}")
+                raise InvalidAPIRequestException(
+                    f"HTTP 400 Bad request: {api_response.data}"
+                )
             case 401:
                 self._http_code_401(api_response)
             case 422:
@@ -171,9 +180,15 @@ class Client:
 
         url = f"{self.base_url}{self.PRODUCT_REGISTER}"
         headers = {"accept": "application/json", "Bearer": self.access_token}
-        data = {"id": str(product.id), "name": product.name, "description": product.description}
+        data = {
+            "id": str(product.id),
+            "name": product.name,
+            "description": product.description,
+        }
 
-        api_response = await self.http_client.async_post(url=url, data=data, headers=headers)
+        api_response = await self.http_client.async_post(
+            url=url, data=data, headers=headers
+        )
 
         if self.logging:
             self._log_request("register", url, headers, data, api_response)
@@ -202,11 +217,13 @@ class Client:
     def _parse_offers(self, data: List) -> List[Offer]:
         offers = []
         for item in data:
-            offers.append(Offer(
-                id=UUID(item["id"]),
-                price=int(item["price"]),
-                items_in_stock=int(item["items_in_stock"])
-            ))
+            offers.append(
+                Offer(
+                    id=UUID(item["id"]),
+                    price=int(item["price"]),
+                    items_in_stock=int(item["items_in_stock"]),
+                )
+            )
         return offers
 
     async def get_offers(self, product_id: UUID) -> List[Offer]:
@@ -233,15 +250,18 @@ class Client:
             case 200:
                 try:
                     return self._parse_offers(list(api_response.data))
-                except (KeyError, JSONDecodeError)  as e:
+                except (KeyError, JSONDecodeError) as e:
                     raise APIException(
                         "Non standard json response from API. Did the docs change?\n"
-                        f"{api_response}"
-                    ) 
+                        f"{api_response}\n"
+                        f"{e}"
+                    )
             case 401:
                 self._http_code_401(api_response)
             case 404:
-                print(f"Product ID {product_id} not registered. Response: {api_response.data}")
+                print(
+                    f"Product ID {product_id} not registered. Response: {api_response.data}"
+                )
                 return []
             case 422:
                 self._http_code_422(api_response)
@@ -295,7 +315,9 @@ class Client:
             log_dir=data.get("log_dir", "logs"),
         )
         obj.access_token = data.get("access_token", "")
-        obj.token_expiry = datetime.fromisoformat(data.get("token_expiry", datetime.min.isoformat()))
+        obj.token_expiry = datetime.fromisoformat(
+            data.get("token_expiry", datetime.min.isoformat())
+        )
         return obj
 
     def save_to_file(self, filepath: str | Path) -> None:

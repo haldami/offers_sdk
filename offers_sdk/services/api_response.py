@@ -17,6 +17,7 @@ class APIResponse:
         data: Parsed JSON response from the API.
         status_code: HTTP status code returned by the API.
     """
+
     data: Dict[str, Any]
     status_code: int
 

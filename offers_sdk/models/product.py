@@ -19,6 +19,7 @@ class Product:
         name: Name of the product.
         description: Description of the product.
     """
+
     id: UUID
     name: str
     description: str
@@ -30,11 +31,7 @@ class Product:
         Returns:
             Dictionary containing the product's id, name, and description.
         """
-        return {
-            "id": str(self.id),
-            "name": self.name,
-            "description": self.description
-        }
+        return {"id": str(self.id), "name": self.name, "description": self.description}
 
     def __repr__(self) -> str:
         return (

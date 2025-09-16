@@ -19,7 +19,7 @@ class IHttpClient(ABC):
         self,
         url: str,
         params: Optional[Dict[str, Any]] = None,
-        headers: Optional[Dict[str, str]] = None
+        headers: Optional[Dict[str, str]] = None,
     ) -> APIResponse:
         """
         Perform an asynchronous HTTP GET request.
@@ -39,7 +39,7 @@ class IHttpClient(ABC):
         self,
         url: str,
         data: Optional[Dict[str, Any]] = None,
-        headers: Optional[Dict[str, str]] = None
+        headers: Optional[Dict[str, str]] = None,
     ) -> APIResponse:
         """
         Perform an asynchronous HTTP POST request.
@@ -59,7 +59,7 @@ class IHttpClient(ABC):
         self,
         url: str,
         data: Optional[Dict[str, Any]] = None,
-        headers: Optional[Dict[str, str]] = None
+        headers: Optional[Dict[str, str]] = None,
     ) -> APIResponse:
         """
         Perform a synchronous HTTP POST request.

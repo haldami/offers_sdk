@@ -18,6 +18,7 @@ class Offer:
         price: Price of the offer in the smallest currency unit (e.g., cents).
         items_in_stock: Number of items currently in stock.
     """
+
     id: UUID
     price: int
     items_in_stock: int
